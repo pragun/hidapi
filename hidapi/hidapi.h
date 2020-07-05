@@ -165,6 +165,9 @@ extern "C" {
 		*/
 		HID_API_EXPORT hid_device * HID_API_CALL hid_open(unsigned short vendor_id, unsigned short product_id, const wchar_t *serial_number);
 
+		/* Similar to hid_open before but used with a usage number instead to filter*/
+		HID_API_EXPORT hid_device* HID_API_CALL hid_open_w_usage_page(unsigned short vendor_id, unsigned short product_id, unsigned short usage, unsigned short page);
+
 		/** @brief Open a HID device by its path name.
 
 			The path name be determined by calling hid_enumerate(), or a
@@ -181,6 +184,7 @@ extern "C" {
 				success or NULL on failure.
 		*/
 		HID_API_EXPORT hid_device * HID_API_CALL hid_open_path(const char *path);
+
 
 		/** @brief Write an Output report to a HID device.
 
